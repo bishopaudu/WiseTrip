@@ -16,10 +16,11 @@ export default function Navigation() {
               headerShown:false
           }}>
              {/*<Stack.Screen name='Onboarding' component={OnboardingScreen} />*/}
-              <Stack.Screen name='Home' component={HomeScreen} />
-              <Stack.Screen name='Notification' component={NotificationScreen} />
-              <Stack.Screen name='User' component={UserScreen} />
-              <Stack.Screen name='Auth' component={AuthScreen} />
+             <Stack.Screen name='Home' component={HomeScreen} />
+             <Stack.Screen name='Auth' component={AuthScreen} />
+            <Stack.Screen name='Notification' component={NotificationScreen} />
+            <Stack.Screen name='User' component={UserScreen} />
+              
           </Stack.Navigator>
     </NavigationContainer>
   )

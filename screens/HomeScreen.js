@@ -1,7 +1,8 @@
-import {View,Text,StyleSheet,Pressable, TouchableOpacity,FlatList} from 'react-native'
+import {View,Text,StyleSheet,Pressable, TouchableOpacity} from 'react-native'
 import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons'; 
 import { useNavigation } from '@react-navigation/native';
+import CarouselScreen from '../components/CarouselScreen';
 
 
 export default function HomeScreen(){
@@ -24,6 +25,7 @@ export default function HomeScreen(){
             <Ionicons name="notifications" size={30} color="blue" />
             </Pressable>
         </View>
+        <CarouselScreen/>
         <View>
             <View style={{flexDirection:'row',justifyContent:"space-between"}}>
             <Text style={{fontSize:20,marginLeft:20}}>Our Services</Text>
@@ -31,7 +33,6 @@ export default function HomeScreen(){
             <Text style={{fontSize:20,marginLeft:20,marginRight:20}}>See More</Text>
             </TouchableOpacity>
             </View>
-            <FlatList/>
         </View>
         </>
     )
