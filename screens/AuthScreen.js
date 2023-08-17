@@ -1,6 +1,6 @@
 import { View, Text,StyleSheet,TextInput, TouchableOpacity,ImageBackground} from 'react-native'
 import React from 'react'
-//import { useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native'
 import { FIREBASE_AUTH } from '../utils/fireBaseConfig'
 import { useState } from 'react'
 import { signInWithEmailAndPassword } from 'firebase/auth'
@@ -10,11 +10,12 @@ export default function AuthScreen() {
   const auth = FIREBASE_AUTH
   const[email,setEmail] = useState(null)
   const[password,setPassword] = useState(null)
-  //const navigation = useNavigation()
+  const navigation = useNavigation()
 
   const signIn = async () => {
     try {
       const response = await signInWithEmailAndPassword(auth,email,password)
+      nav.navigate('Home')
       console.log(response)
       alert('Signed In Successful')
     } catch (err) {
@@ -67,13 +68,13 @@ const styles = StyleSheet.create({
     width:'80%',
     borderRadius:25,
     padding:20,
-    backgroundColor:"#cadbce",
+    backgroundColor:'#c1c9c4',
     marginBottom:10,
     height:70,
   },
   buttonStyle:{
     padding:15,
-    backgroundColor:"#cadbce",
+    backgroundColor:'#c1c9c4',
     borderRadius:18,
     width:'80%',
     marginBottom:18,

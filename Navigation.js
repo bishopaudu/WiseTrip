@@ -6,6 +6,12 @@ import HomeScreen from './screens/HomeScreen';
 import NotificationScreen from './screens/NotificationScreen';
 import UserScreen from './screens/UserScreen';
 import AuthScreen from './screens/AuthScreen';
+import PopularRoutes from './screens/PopularRoutes';
+import BookingScreen from './screens/BookingScreen'
+import LogisticsScreen from './screens/LogisticsScreen'
+import Travel from './screens/Travel'
+import CouponScreen from './screens/CouponScreen'
+
 
 const Stack = createNativeStackNavigator()
 
@@ -20,7 +26,11 @@ export default function Navigation() {
              <Stack.Screen name='Auth' component={AuthScreen} />
             <Stack.Screen name='Notification' component={NotificationScreen} />
             <Stack.Screen name='User' component={UserScreen} />
-              
+            <Stack.Screen name='Routes' component={PopularRoutes}/>
+            <Stack.Screen name='Book Ticket' component={BookingScreen}/>
+            <Stack.Screen name='Coupons' component={CouponScreen}/>
+            <Stack.Screen name='Logistics' component={LogisticsScreen}/>
+            <Stack.Screen name='Travel' component={Travel}/>
           </Stack.Navigator>
     </NavigationContainer>
   )

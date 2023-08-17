@@ -7,27 +7,31 @@ import PropTypes from 'prop-types';
 
 export default function CarouselScreen() {
   const[activeSlide,setActiveSlide] = useState(0)
-  const images = [
-    {id:1,url:'https://media.istockphoto.com/id/1417565225/photo/diverse-group-onboard-motor-coach-before-departure.jpg?s=2048x2048&w=is&k=20&c=SfakQY5WERAQPocKOogeN_jUjWCoX-kkDZqE-qCi1Q0='},
-    {id:2,url:'https://media.istockphoto.com/id/540124958/photo/coach-bus.jpg?s=2048x2048&w=is&k=20&c=NjBEvvN13tITvAQhI7bKl0Uf1PLAnSfmb6tHhHty8Nc=' },
-    {id:3,url:'https://media.istockphoto.com/id/903280714/photo/shuttle-bus.jpg?s=2048x2048&w=is&k=20&c=CTbnH5ELsXYBUWwECB1hgkzj7IABq0XT5vRsrkeb32k='}
-  ]
-  const renderItem=() => {
+  const localImages = [
+    {id:1,src:require('../assets/carouselImages/carousel1.jpg')},
+  {id:2,src:require('../assets/carouselImages/carousel2.jpg')},
+  {id:3,src:require('../assets/carouselImages/carousel3.jpg')},
+]
+  const renderItem=({item}) => {
     return (
-      <Image source = {{uri:images.url}} style={styles.image} />
+      <Image source = {item.src} style={styles.image} />
     )
   }
   return (
     <View>
        <Carousel
-        data={images}
+        data={localImages}
         renderItem={renderItem}
         sliderWidth={Dimensions.get('window').width}
-        itemWidth={Dimensions.get('window').width - 60}
-        onSnapToItem={(index) => setActiveSlide(index)}/>
+        itemWidth={Dimensions.get('window').width -20}
+        onSnapToItem={(index) => setActiveSlide(index)}
+        autoplay={true} 
+        autoplayInterval={3000} 
+        loop={true}
+        loopClonesPerSide={localImages.length - 1}/>
 
     <Pagination 
-        dotsLength={images.length}
+        dotsLength={localImages.length}
         activeDotIndex={activeSlide}
         containerStyle={styles.paginationContainer}
         dotStyle={styles.paginationDot}
@@ -54,6 +58,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 200,
     resizeMode: 'cover',
+    borderRadius:10
   },
   paginationContainer: {
     paddingVertical: 8,

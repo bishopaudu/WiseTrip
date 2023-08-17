@@ -1,53 +1,95 @@
-import {View,Text,StyleSheet,Pressable, TouchableOpacity} from 'react-native'
-import { AntDesign } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons'; 
+import {View,StyleSheet,Text,Pressable,TouchableOpacity,ScrollView} from 'react-native'
+import CarouselScreen from '../components/CarouselScreen'
 import { useNavigation } from '@react-navigation/native';
-import CarouselScreen from '../components/CarouselScreen';
+import PopularDestination from '../components/PopularDestination';
+import Services from '../components/Services';
+import { AntDesign } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 
-export default function HomeScreen(){
-    const navigation = useNavigation()
-    const userNav =() => {
-        navigation.navigate('Auth')
-    }
-
-    const notificationNav =() => {
-        navigation.navigate('Notification')
-    }
+export default function HomeScreen() {
+    const navigation = useNavigation();
+  
+    const userNav = () => {
+      navigation.navigate('Auth');
+    };
+  
+    const notificationNav = () => {
+      navigation.navigate('Notification');
+    };
+  
     return (
-        <>
+      <ScrollView showVerticalScrollIndicator={false} style={{flex:1}}>
         <View style={styles.container}>
-            <Pressable style={styles.iconsStyle} onPress={userNav}>
+          <Pressable style={styles.iconsStyle} onPress={userNav}>
             <AntDesign name="user" size={30} color="black" />
-            </Pressable>
-            <Text style={{fontWeight:'bold',letterSpacing:2,fontSize:30}}>WiseTrips</Text>
-            <Pressable style={styles.iconsStyle} onPress={notificationNav}>
+          </Pressable>
+          <Text style={styles.logoText}>WiseTrips</Text>
+          <Pressable style={styles.iconsStyle} onPress={notificationNav}>
             <Ionicons name="notifications" size={30} color="blue" />
-            </Pressable>
+          </Pressable>
         </View>
-        <CarouselScreen/>
-        <View>
-            <View style={{flexDirection:'row',justifyContent:"space-between"}}>
-            <Text style={{fontSize:20,marginLeft:20}}>Our Services</Text>
+        <CarouselScreen />
+        <View style={styles.sectionContainer}>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Our Services</Text>
             <TouchableOpacity>
-            <Text style={{fontSize:20,marginLeft:20,marginRight:20}}>See More</Text>
+              <Text style={styles.seeMore}>See More</Text>
             </TouchableOpacity>
-            </View>
+          </View>
+          <Services />
         </View>
-        </>
-    )
-}
-
-const styles = StyleSheet.create({
+        <Text style={styles.topRoutesTitle}>Top Available Routes</Text>
+        <PopularDestination />
+      </ScrollView>
+    );
+  }
+  
+  const styles = StyleSheet.create({
     container: {
         flexDirection:'row',
         alignItems:'center',
-        justifyContent:"space-between"
+        justifyContent:"space-between",
+        marginBottom:20
     },
     iconsStyle:{
         //backgroundColor:'gray',
         padding:10,
         borderRadius:30,
-        margin:5
-    }
-})
+    },
+       
+    logoText: {
+      fontWeight: 'bold',
+      letterSpacing: 2,
+      fontSize: 30,
+    },
+  
+    sectionContainer: {
+      marginTop: 10,
+    },
+  
+    sectionHeader: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      marginBottom: 10,
+      marginLeft:10
+    },
+  
+    sectionTitle: {
+      fontSize: 20,
+    },
+  
+    seeMore: {
+      fontSize: 20,
+      marginRight: 10,
+    },
+  
+    topRoutesTitle: {
+      marginTop: 10,
+      marginLeft: 10,
+      fontWeight: '500',
+      fontSize: 18,
+      marginBottom:10
+    },
+  });
+  

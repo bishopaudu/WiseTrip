@@ -1,14 +1,20 @@
-import { View, Text,StyleSheet} from 'react-native'
+import { View,ScrollView,} from 'react-native'
 import React from 'react'
+import {serviceData} from '../utils/servicedata'
+import Servicecard from './Servicecard'
 
 export default function Services() {
+ 
   return (
-    <View>
-      <Text>Services</Text>
-    </View>
+    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+      {serviceData.map((item) => {
+        return (
+          <View key={item.id}>
+          <Servicecard item={item}/>
+          </View>
+        )
+      })}
+    </ScrollView>
   )
 }
 
-const styles = StyleSheet.create({
-
-})
