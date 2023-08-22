@@ -8,9 +8,8 @@ export default function PopularDestination() {
                return (
                    <View style={{
                     marginBottom:10,
-                    marginLeft:8,
+                    marginLeft:10,
                     marginRight:10,
-                   padding:8,
                    backgroundColor:'#c1c9c4',
                    borderRadius:10}} 
                    key={item.id}>

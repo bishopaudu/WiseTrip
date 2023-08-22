@@ -23,7 +23,7 @@ export default function Destinationcard({item}){
 const styles = StyleSheet.create({
     container:{
         flexDirection:'row',
-        marginLeft:10,
+        marginRight:10,
         justifyContent:'center',
         alignItems:'center'
     },
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         borderRadius:5,
         padding:10,
         width:150,
-        height:100
+        height:120
     },
     subContainer:{
         flex:1,
