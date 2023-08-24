@@ -1,68 +1,34 @@
-import {View,StyleSheet,Dimensions} from 'react-native'
-import { useNavigation } from '@react-navigation/native';
-import React from 'react'
-import Onboarding from 'react-native-onboarding-swiper'
-import LottieView from "lottie-react-native";
+import React,{useState,useRef} from 'react'
+import {View,StyleSheet,FlatList,Animated} from 'react-native'
+import {onboardingData} from '../utils/onboardingData'
+import Onboarding from '../components/Onboarding'
 
-const {width}  = Dimensions.get('window')
 export default function OnboardingScreen() {
-  const navigation = useNavigation()
-
-  const handleSkip=() => {
-    navigation.navigate('Home')
-  }
-
-  const handleDone=() => {
-    navigation.navigate('Home')
-  }
-  return (
-    <View style={styles.container}>
-    <Onboarding
-    onSkip={handleSkip}
-    onDone={handleDone}
-    bottomBarHighlight={false}
-    pages={[
-    { 
-      backgroundColor: '#fff',
-      image: (
-        <View style={{width:width*0.9,height:width}}>
-        <LottieView source={require("../assets/images/lottieAnimations/travel1.json")}
-         autoPlay loop />
-         </View>
-      ),
-      title: 'Onboarding',
-      subtitle: 'Enjoy Safer Trips Across The Country',
-    } ,
-    {
-      backgroundColor: '#fff',
-      image:  (
-        <View style={{width:width*0.9,height:width}}>
-        <LottieView source={require("../assets/images/lottieAnimations/travel2.json")}
-         autoPlay loop />
-         </View>
-      ),
-      title: 'Onboarding',
-      subtitle: 'Spend Less On Your Trips',
-    } ,
-    {
-      backgroundColor: '#fff',
-      image: (
-        <View style={{width:width*0.9,height:width}}>
-        <LottieView source={require("../assets/images/lottieAnimations/travel3.json")}
-         autoPlay loop />
-         </View>
-      ),
-      title: 'Onboarding',
-      subtitle: 'Enjoy The Comfort We Provide',
-    } ,
-]}
-/>
-</View>
-  )
+  const scrollX  = useRef (new Animated.Value(0)).current
+          return (
+            <View style={styles.container}>
+              <FlatList
+              data={onboardingData}
+              renderItem={({item}) => <Onboarding item={item}/>}
+              horizontal
+              showHorizontalScrollIndicator
+              pagingEnabled
+              bounces={false}
+              keyExtractor={(item) => item.id}
+              onScroll={Animated.event([{nativeEvent:{contentOffset:{x:scrollX}}}],{
+                useNativeDriver:false,
+              })}
+              />
+            </View>  
+          )
+ 
 }
 
 const styles = StyleSheet.create({
   container:{
-    flex:1
+    flex:1,
+    justifyContainer:'center',
+    alignItems:'center'
   }
 })
+

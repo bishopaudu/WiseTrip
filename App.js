@@ -1,13 +1,14 @@
-import { StyleSheet} from 'react-native';
+import { StyleSheet,StatusBar} from 'react-native';
 import {SafeAreaView} from "react-native-safe-area-context"
 import Navigation from './Navigation';
-import {StatusBar} from 'react-native'
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-       <StatusBar hidden={false}
-      barStyle="light-content"
-      translucent={true} />
+      <StatusBar
+        hidden={false}
+        barStyle="light-content"
+        translucent={true}
+        backgroundColor="black"/>
       <Navigation/>
     </SafeAreaView>
   );

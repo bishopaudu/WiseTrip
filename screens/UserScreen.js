@@ -1,8 +1,14 @@
-import {View,Text} from 'react-native'
+import {View,Text,StyleSheet} from 'react-native'
 export default function UserScreen() {
     return (
-        <View>
+        <View style={styles.mainContainer}>
             <Text>UserScreen</Text>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    mainContainer:{
+        flex:1,
+    },
+})

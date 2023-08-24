@@ -1,0 +1,26 @@
+export const TimePickerData =[
+    {
+        id:0,
+        time:"8:00AM"
+    },
+    {
+        id:1,
+        time:"9:00AM"
+    },
+    {
+        id:2,
+        time:"10:00AM"
+    },
+    {
+        id:3,
+        time:"12:00PM"
+    },
+    {
+        id:4,
+        time:"1:00PM"
+    },
+    {
+        id:5,
+        time:"3:00PM"
+    }
+]

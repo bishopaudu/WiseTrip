@@ -1,6 +1,7 @@
 import {View,Text,TouchableOpacity} from 'react-native'
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import Header from '../components/Header'
 
 export default function Routes() {
     const navigation = useNavigation()
@@ -9,9 +10,7 @@ export default function Routes() {
     }
     return (
         <View>
-            <TouchableOpacity style={{marginLeft:5,padding:5}} onPress={nav}>
-           <AntDesign name="arrowleft" size={24} color="black"/>
-           </TouchableOpacity>
+            <Header text="Routes" nav={nav}/>
         </View>
     )
 }

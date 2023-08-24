@@ -1,10 +1,17 @@
-import { View, Text,StyleSheet,TextInput, TouchableOpacity,ImageBackground} from 'react-native'
+import { 
+  View, 
+  Text,
+  StyleSheet,
+  TextInput, 
+  TouchableOpacity,
+  ImageBackground} from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { FIREBASE_AUTH } from '../utils/fireBaseConfig'
 import { useState } from 'react'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
+import Header from '../components/Header'
 
 export default function AuthScreen() {
   const auth = FIREBASE_AUTH
@@ -34,7 +41,9 @@ export default function AuthScreen() {
   }
   return (
     <ImageBackground source={require('../assets/images/passenger.jpg')} style={{flex:1}}>
+      <Header/>
     <View style={styles.container}>
+      
       <Text style={styles.titleText}>WiseTrips</Text>
       {/*<View style={styles.inputView}>
         <TextInput placeholder='FirstName' style={{color:'#000'}}/>
@@ -47,10 +56,10 @@ export default function AuthScreen() {
         <TextInput placeholder='Password' secureTextEntry 
         style={{color:'#000'}} onChangeText={(text) => setPassword(text)}/>
       </View>
-      <TouchableOpacity style={styles.buttonStyle} onPress={signIn}>
+      <TouchableOpacity style={[styles.buttonStyle,styles.loginButton]} onPress={signIn}>
         <Text style={{textAlign:'center'}}>LOGIN</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonStyle} onPress={signUp}>
+      <TouchableOpacity style={[styles.buttonStyle,styles.createAccountButton]} onPress={signUp}>
         <Text style={{textAlign:'center'}}>Create Account</Text>
       </TouchableOpacity>
     </View>
@@ -59,6 +68,12 @@ export default function AuthScreen() {
 }
 
 const styles = StyleSheet.create({
+  loginButton:{
+    backgroundColor:'#455dbf'
+  },
+  createAccountButton:{
+    backgroundColor:'#eb4481'
+  },
   container:{
     flex:1,
     justifyContent:'center',
@@ -66,15 +81,15 @@ const styles = StyleSheet.create({
   },
   inputView:{
     width:'80%',
-    borderRadius:25,
+    borderRadius:20,
     padding:20,
-    backgroundColor:'#c1c9c4',
+    backgroundColor:'#e0e0e0',
     marginBottom:10,
     height:70,
   },
   buttonStyle:{
     padding:15,
-    backgroundColor:'#c1c9c4',
+    backgroundColor:'#e0e0e0',
     borderRadius:18,
     width:'80%',
     marginBottom:18,
