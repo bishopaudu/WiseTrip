@@ -9,6 +9,10 @@ import { Ionicons } from '@expo/vector-icons';
 
 export default function HomeScreen() {
     const navigation = useNavigation();
+
+    const routeNav =() => {
+      navigation.navigate('Routes')
+    }
   
     const userNav = () => {
       navigation.navigate('Auth');
@@ -39,7 +43,12 @@ export default function HomeScreen() {
           </View>
           <Services />
         </View>
+        <View style={{flexDirection:'row',justifyContent:'space-between'}}>
         <Text style={styles.topRoutesTitle}>Top Available Routes</Text>
+        <TouchableOpacity onPress={() => { routeNav(); console.log('touched'); }}>
+        <Text style={[styles.topRoutesTitle,{marginRight:10}]}>View Routes</Text>
+        </TouchableOpacity>
+        </View>
         <PopularDestination />
       </ScrollView>
     );

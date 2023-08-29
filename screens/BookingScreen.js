@@ -8,9 +8,11 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import Header from '../components/Header'
 import { Entypo } from '@expo/vector-icons';
 import {TimePickerData} from '../utils/TimePickerData'
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 
 export default function BookingScreen() {
+  const[passengers,setPassengers]= useState(0)
   const[selectTime,setSelectTime] = useState([])
   const[date,setDate] = useState(new Date())
   const[showPicker,setShowPicker] = useState(false);
@@ -48,7 +50,7 @@ export default function BookingScreen() {
             <View style={styles.ticketContainer}>
                 <View style={{flexDirection:'row',alignItems:"center",margin:10}}>
                 <View style={{margin:5}}>
-                <FontAwesome5 name="bus" size={24} color="blue" />
+                <FontAwesome5 name="bus" size={20} color="blue" />
                 </View>
                 <Text style={{marginRight:8,fontSize:20}}>From</Text>
                 <DropDownPicker
@@ -59,7 +61,7 @@ export default function BookingScreen() {
             setOpen={setIsFromOpen}
             setValue={setFromValue}
             setItems={setItems}
-            placeholder='Select The State You Are In'
+            placeholder='Select Origin'
             placeholderStyle={{
                 color: "grey",
                 fontWeight: "bold"
@@ -70,9 +72,10 @@ export default function BookingScreen() {
             zIndexInverse={1000}
         />
         </View>
-        <View style={{flexDirection:'row',alignItems:"center",margin:20}}>
-                <View style={{margin:5}}>
-                <FontAwesome5 name="bus" size={24} color="blue" />
+     
+        <View style={{flexDirection:'row',alignItems:"center",margin:15,marginRight:15,}}>
+                <View style={{margin:5,marginRight:10}}>
+                <FontAwesome5 name="bus" size={20} color="blue" />
                 </View>
                 <Text style={{margin:8,fontSize:20}}>T0</Text>
                 <DropDownPicker
@@ -83,7 +86,7 @@ export default function BookingScreen() {
             setOpen={setIsToOpen}
             setValue={setToValue}
             setItems={setItems}
-            placeholder='Select The State You Want To Go'
+            placeholder='Select Destination'
             placeholderStyle={{
                 color: "grey",
                 fontWeight: "bold"
@@ -95,7 +98,8 @@ export default function BookingScreen() {
             //searchable={true}
         />
         </View>
-        <View style={{flexDirection:'row',alignItems:'center',margin:20}}>
+
+        <View style={{flexDirection:'row',alignItems:'center',margin:10}}>
         <View style={{margin:5,marginRight:5}}>
         <AntDesign name="calendar" size={24} color="blue" onPress={() => {
         console.log('touched'); 
@@ -111,10 +115,12 @@ export default function BookingScreen() {
           onChange={onChange}
         />)}
       </View>
+      
       <View>
-        <View style={{flexDirection:'row',alignItems:'center',margin:20}}>
+        <View style={{flexDirection:'row',alignItems:'center',margin:10}}>
         <Entypo name="back-in-time" size={24} color="blue" />
         <Text style={{marginLeft:10,fontSize:20}}>Select Time</Text>
+        <Text style={{marginLeft:10}}>{selectTime}</Text>
         </View>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
       <View style={{ flexDirection: 'row' }}>
@@ -140,6 +146,30 @@ export default function BookingScreen() {
         ))}
       </View>
     </ScrollView>
+      </View>
+      <View style={{flexDirection:'row',margin:5,alignItems:'center',marginTop:10}}>
+        <View style={{marginRight:5,marginLeft:5}}>
+      <MaterialCommunityIcons name="seat-passenger" size={24} color="blue" />
+      </View>
+        <Text style={{fontSize:20}}>Passenger</Text>
+        <View style={{flexDirection:'row',
+        padding:10,
+        width:150,
+        backgroundColor:'#e0e0e0',
+        marginLeft:20,
+        justifyContent:'space-between',
+        borderRadius:10,
+        alignItems:'center'}}>
+
+          <TouchableOpacity>
+          <Text style={{fontSize:25}}>+</Text>
+          </TouchableOpacity>
+          <Text style={{fontSize:20}}>{passengers}</Text>
+          <TouchableOpacity>
+          <Text style={{fontSize:25}}>-</Text>
+          </TouchableOpacity>
+         
+        </View>
       </View>
       <TouchableOpacity style={styles.buttonStyle} onPress={() => console.log('bookingbutton')}>
         <Text style={{textAlign:'center',fontSize:20}}>Book</Text>
@@ -169,7 +199,7 @@ const styles = StyleSheet.create({
       height:50,
       padding:10,
       width:'100',
-      backgroundColor:'#e0e0e0',
+      backgroundColor:'#5254e3',
       margin:10,
       borderRadius:10
     },
@@ -187,11 +217,11 @@ const styles = StyleSheet.create({
         marginRight:40
     },
     ticketContainer:{
-        backgroundColor:'whitesmoke',
+        backgroundColor:'#fff',
         margin:10,
         marginTop:20,
         borderWidth:1,
-        borderColor:'gray',
+        borderColor:'#e0e0e0',
         borderRadius:10
     },
    

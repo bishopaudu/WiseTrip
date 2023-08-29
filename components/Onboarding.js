@@ -1,17 +1,16 @@
-import {View,Text,StyleSheet,Dimensions} from 'react-native'
-import LottieView from "lottie-react-native";
+import {View,Text,StyleSheet,Dimensions,ImageBackground} from 'react-native'
+import './Paginator'
 
 export default function Onboarding({item}) {
     const {width}  = Dimensions.get('window')
     return (
         <View style={[styles.container,{width}]}>
-          <LottieView 
-          source={item.asset} autoPlay loop style={[styles.animation,{width}]}/>
-
-          <View style={{flex:0.3}}>
+          <ImageBackground source={item.asset} style={[styles.img,{width}]} resizeMode='cover'>
+          <View style={{flex:1,justifyContent: 'flex-end', marginBottom: 50, marginHorizontal: 20}}>
           <Text style={styles.title}>{item.title}</Text>
             <Text  style={styles.desc}>{item.desc}</Text>
-          </View>
+            </View>
+            </ImageBackground>
         </View>
         
       )
@@ -22,10 +21,12 @@ const styles = StyleSheet.create({
       justifyContent:'center',
       alignItems:'center'
     },
-    animation:{
-      flex:0.7,
+    img:{
+      flex:1,
       justifyContent:'center',
-      alignItems:'center'
+      alignItems:'center',
+      width:'100'
+
     },
     title:{
       fontWeight:'800',
