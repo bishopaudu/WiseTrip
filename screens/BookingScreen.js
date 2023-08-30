@@ -9,6 +9,7 @@ import Header from '../components/Header'
 import { Entypo } from '@expo/vector-icons';
 import {TimePickerData} from '../utils/TimePickerData'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { EvilIcons } from '@expo/vector-icons';
 
 
 export default function BookingScreen() {
@@ -161,13 +162,23 @@ export default function BookingScreen() {
         borderRadius:10,
         alignItems:'center'}}>
 
-          <TouchableOpacity>
+          {/*<TouchableOpacity >
           <Text style={{fontSize:25}}>+</Text>
-          </TouchableOpacity>
+        </TouchableOpacity>*/}
+        <EvilIcons name="plus" size={28} color="black" onPress={() => {console.log('plus touched' + passengers); setPassengers(prevPassengers => prevPassengers + 1)}}/>
           <Text style={{fontSize:20}}>{passengers}</Text>
-          <TouchableOpacity>
+          <EvilIcons name="minus" size={28} color="black" 
+            onPress={() => {
+              if (passengers > 0) {
+                console.log('Minus touched');
+                setPassengers(prevPassengers => prevPassengers - 1);
+              } else {
+                console.log('cannot go beyond zero')
+              }
+            }} />
+          {/*<TouchableOpacity>
           <Text style={{fontSize:25}}>-</Text>
-          </TouchableOpacity>
+        </TouchableOpacity>*/}
          
         </View>
       </View>

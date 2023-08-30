@@ -34,7 +34,8 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         marginRight:10,
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
+       
     },
     imageContainer:{
         borderRadius:5,
