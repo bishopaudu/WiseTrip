@@ -1,11 +1,15 @@
 import React,{useState,useRef} from 'react'
 import {View,StyleSheet,FlatList,Animated} from 'react-native'
 import {onboardingData} from '../utils/onboardingData'
-import {setItem} from '../utils/'
 import Onboarding from '../components/Onboarding'
 import Paginator from '../components/Paginator'
+import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage'
+
+
 
 export default function OnboardingScreen() {
+  const navigation = useNavigation()
   const[currentIndex,setCurrentIndex] = useState(0)
   const slideRef = useRef(null)
   const viewableItemsChanged = useRef(({viewableItems}) => {
@@ -14,17 +18,18 @@ export default function OnboardingScreen() {
   const viewConfig = useRef({viewAreaCoveragePercentThreshold:50}).current
   const scrollX  = useRef (new Animated.Value(0)).current
 
-  /*const scrollTo =() => {
+  const scrollTo =async () => {
     if(currentIndex < onboardingData.length -1){
-      slidesRef.current.scrollToIndex({index:currentIndex + 1})
+      slideRef.current.scrollToIndex({index:currentIndex + 1})
     } else {
       try {
-
-      } catch {
-
+       await AsyncStorage.setItem('onboarding','done')
+       navigation.navigate('Homestack', { screen: 'Home' });
+      } catch(error){
+        console.log('error' + error)
       }
     }
-  }*/
+  }
           return (
             <View style={styles.container}>
               <View style={{flex:3}}>
@@ -43,6 +48,7 @@ export default function OnboardingScreen() {
                   scrollEventThrottle={32}
                   viewabilityConfig={viewConfig}
                   ref={slideRef}
+                   onEndReached={scrollTo} 
                 />
                 </View>
                 <Paginator data={onboardingData} scrollX = {scrollX}/>

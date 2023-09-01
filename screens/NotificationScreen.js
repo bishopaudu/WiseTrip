@@ -13,11 +13,10 @@ const styles = StyleSheet.create({
   container:{
     flex:1,
     justifyContent:'center',
-    alignItem:'center'
+    alignItems:'center'
   },
   text:{
-    fontSize:40,
-    letterSpacing:10,
-    color:'#000'
+    fontSize:20,
+    color:'#000',
   }
 })

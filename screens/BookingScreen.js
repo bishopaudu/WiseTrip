@@ -106,7 +106,7 @@ export default function BookingScreen() {
         console.log('touched'); 
         setShowPicker(true);}} />     
         </View>
-        <Text style={{margin:8,fontSize:20}}>Select Date</Text>
+        <Text style={{margin:8,fontSize:20}}>Select Departure Date</Text>
         <Text style={styles.dateStyle}>{formattedDate ? formattedDate : 'Select Date'}</Text>
         {showPicker && (
         <DateTimePicker
@@ -120,7 +120,7 @@ export default function BookingScreen() {
       <View>
         <View style={{flexDirection:'row',alignItems:'center',margin:10}}>
         <Entypo name="back-in-time" size={24} color="blue" />
-        <Text style={{marginLeft:10,fontSize:20}}>Select Time</Text>
+        <Text style={{marginLeft:10,fontSize:20}}>Select Departure Time</Text>
         <Text style={{marginLeft:10}}>{selectTime}</Text>
         </View>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -162,10 +162,9 @@ export default function BookingScreen() {
         borderRadius:10,
         alignItems:'center'}}>
 
-          {/*<TouchableOpacity >
-          <Text style={{fontSize:25}}>+</Text>
-        </TouchableOpacity>*/}
-        <EvilIcons name="plus" size={28} color="black" onPress={() => {console.log('plus touched' + passengers); setPassengers(prevPassengers => prevPassengers + 1)}}/>
+        <EvilIcons name="plus" size={28} color="black" 
+        onPress={() => {console.log('plus touched' + passengers); 
+        setPassengers(prevPassengers => prevPassengers + 1)}}/>
           <Text style={{fontSize:20}}>{passengers}</Text>
           <EvilIcons name="minus" size={28} color="black" 
             onPress={() => {
@@ -176,10 +175,7 @@ export default function BookingScreen() {
                 console.log('cannot go beyond zero')
               }
             }} />
-          {/*<TouchableOpacity>
-          <Text style={{fontSize:25}}>-</Text>
-        </TouchableOpacity>*/}
-         
+              
         </View>
       </View>
       <TouchableOpacity style={styles.buttonStyle} onPress={() => console.log('bookingbutton')}>
@@ -228,12 +224,12 @@ const styles = StyleSheet.create({
         marginRight:40
     },
     ticketContainer:{
-        backgroundColor:'#fff',
+        //backgroundColor:'#fff',
         margin:10,
-        marginTop:20,
-        borderWidth:1,
+        marginTop:10,
+       // borderWidth:1,
         borderColor:'#e0e0e0',
-        borderRadius:10
+        //borderRadius:10
     },
    
 })

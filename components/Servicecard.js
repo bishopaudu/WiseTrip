@@ -2,7 +2,6 @@ import {View,Text,TouchableOpacity,Image,StyleSheet} from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 //import {useState} from 'react'
 export default function Servicecard({item}){
-  //const[route,setRoute] = useState(null)
   const navigation = useNavigation()
      const onpress = (routeName) => {
        navigation.navigate(routeName)
@@ -10,10 +9,10 @@ export default function Servicecard({item}){
   }
     return (
         <TouchableOpacity onPress={() => onpress(item.name)}  style={styles.service} key={item.id}>
-              <View style={{padding:10}}>
+              <View style={{padding:5}}>
                 <Image source={item.img}  resizeMode='cover'/>
                 </View>
-              <Text style={{fontWeight:'300',padding:20,fontSize:30}}>{item.name}</Text>
+              <Text style={{fontWeight:'300',padding:15,fontSize:25}}>{item.name}</Text>
             </TouchableOpacity>
     )
 }
@@ -28,7 +27,7 @@ const styles = StyleSheet.create({
       borderWidth:1,
       borderColor:'#e0e0e0',
       borderRadius:10,
-      height:'50',
+      height:'60',
       
     }
   

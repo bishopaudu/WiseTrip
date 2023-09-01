@@ -6,7 +6,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <StatusBar
         hidden={false}
-        barStyle="light-content"
+        barStyle="light"
         translucent={true}
         backgroundColor="black"/>
       <Navigation/>

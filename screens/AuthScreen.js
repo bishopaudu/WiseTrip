@@ -60,7 +60,7 @@ export default function AuthScreen() {
         <Text style={{textAlign:'center'}}>LOGIN</Text>
       </TouchableOpacity>
       <TouchableOpacity style={[styles.buttonStyle,styles.createAccountButton]} onPress={signUp}>
-        <Text style={{textAlign:'center'}}>Create Account</Text>
+        <Text style={{textAlign:'center'}}>CREATE ACCOUNT</Text>
       </TouchableOpacity>
     </View>
     </ImageBackground>
