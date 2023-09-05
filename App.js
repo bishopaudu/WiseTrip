@@ -5,10 +5,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
-        hidden={false}
-        barStyle="light"
-        translucent={true}
-        backgroundColor="black"/>
+        barStyle="light-content"/>
       <Navigation/>
     </SafeAreaView>
   );
@@ -17,6 +14,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'#F0F0F0'
+    backgroundColor:'#fff'
   },
 });

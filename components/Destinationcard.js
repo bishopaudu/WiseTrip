@@ -1,5 +1,4 @@
 import {View,Text,Image,TouchableOpacity,StyleSheet} from 'react-native'
-import { FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
 export default function Destinationcard({item}){
@@ -15,16 +14,16 @@ export default function Destinationcard({item}){
             <Text style={{fontSize:15}}>From ->{item.price}</Text>
             <Text style={{fontSize:12}}>120 Trips</Text>
         </View>
-        <TouchableOpacity onPress={() => Routes()}>
+        <TouchableOpacity onPress={() => Routes()} style={{backgroundColor:'blue'}}>
             <Text style={{padding:8,
                 margin:5,
-                borderRadius:10,
-                borderColor:'#5254e3',
-                borderWidth:0.7,
+                borderRadius:5,
+                color:'white'
+               // borderColor:'#5254e3',
+                //borderWidth:0.7,
                 }}>Book</Text>
         </TouchableOpacity>
         
-       {/* <FontAwesome name="arrow-circle-right" size={24} color="black" onPress={Routes}/>*/}
     </View>
     )
 }

@@ -23,7 +23,7 @@ export default function HomeScreen() {
     };
   
     return (
-      <ScrollView showVerticalScrollIndicator={false} style={{flex:1}}>
+      <ScrollView showVerticalScrollIndicator={false} style={{flex:1,backgroundColor:'#fff'}}>
         <View style={styles.container}>
           <Pressable style={styles.iconsStyle} onPress={userNav}>
             <AntDesign name="user" size={30} color="black" />
@@ -59,7 +59,8 @@ export default function HomeScreen() {
         flexDirection:'row',
         alignItems:'center',
         justifyContent:"space-between",
-        marginBottom:20
+        marginBottom:20,
+        //backgroundColor:'#fff'
     },
     iconsStyle:{
         //backgroundColor:'gray',

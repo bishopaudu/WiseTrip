@@ -10,9 +10,14 @@ import { Entypo } from '@expo/vector-icons';
 import {TimePickerData} from '../utils/TimePickerData'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { EvilIcons } from '@expo/vector-icons';
+import ButtomSheetComponent from '../components/ButtomSheetComponent'
+
 
 
 export default function BookingScreen() {
+  const[originVal,setOriginVal] = useState(null)
+  const[destinationVal,setDestinationVal] = useState(null)
+  const[isVisible,setIsvisible] = useState(false)
   const[passengers,setPassengers]= useState(0)
   const[selectTime,setSelectTime] = useState([])
   const[date,setDate] = useState(new Date())
@@ -21,10 +26,23 @@ export default function BookingScreen() {
     const [isToOpen, setIsToOpen] = useState(false);
     const [fromValue, setFromValue] = useState(null);
     const [toValue, setToValue] = useState(null);
-    const [items, setItems] = useState([
+    const [originItems, setOriginItems] = useState([
     { label: 'Apple', value: 'apple' },
     { label: 'Banana', value: 'banana' }
   ]);
+  const [destinationItems, setDestinationItems] = useState([
+    { label: 'Apple', value: 'apple' },
+    { label: 'Banana', value: 'banana' }
+  ]);
+
+  const bookingData ={
+    departureDate:date.toLocaleDateString(),
+    departureTime:selectTime,
+    numOfPassengers:passengers,
+    origin:originVal,
+    destination:destinationVal
+
+  }
 
   const formattedDate = date.toLocaleDateString()
  
@@ -44,6 +62,10 @@ export default function BookingScreen() {
     const nav =() => {
         navigation.goBack()
     }
+
+    const toggleModal =() => {
+      setIsvisible(!isVisible)
+    }
     
     return (
         <View style={styles.mainContainer}>
@@ -58,10 +80,10 @@ export default function BookingScreen() {
             open={isFromOpen}
             onOpen={onTopen}
             value={fromValue}
-            items={items}
+            items={originItems}
             setOpen={setIsFromOpen}
             setValue={setFromValue}
-            setItems={setItems}
+            setItems={setOriginItems}
             placeholder='Select Origin'
             placeholderStyle={{
                 color: "grey",
@@ -71,6 +93,10 @@ export default function BookingScreen() {
             stickyHeader={true}
             zIndex={3000}
             zIndexInverse={1000}
+            onSelectItem={(item) => {
+              console.log(item.value);
+              setOriginVal(item.value)
+            }}
         />
         </View>
      
@@ -83,10 +109,10 @@ export default function BookingScreen() {
             open={isToOpen}
             onOpen={onFromOpen}
             value={toValue}
-            items={items}
+            items={destinationItems}
             setOpen={setIsToOpen}
             setValue={setToValue}
-            setItems={setItems}
+            setItems={setDestinationItems}
             placeholder='Select Destination'
             placeholderStyle={{
                 color: "grey",
@@ -96,6 +122,10 @@ export default function BookingScreen() {
             stickyHeader={true}
             zIndex={1000}
             zIndexInverse={3000}
+            onSelectItem={(item) => {
+              console.log(item.value);
+              setDestinationVal(item.value)
+            }}
             //searchable={true}
         />
         </View>
@@ -178,10 +208,14 @@ export default function BookingScreen() {
               
         </View>
       </View>
-      <TouchableOpacity style={styles.buttonStyle} onPress={() => console.log('bookingbutton')}>
+      <TouchableOpacity style={styles.buttonStyle} onPress={() => {console.log('bookingbutton');toggleModal()}}>
         <Text style={{textAlign:'center',fontSize:20}}>Book</Text>
       </TouchableOpacity>
         </View>
+        {isVisible && <ButtomSheetComponent
+         isVisible={isVisible} 
+        toggleModal={toggleModal} 
+        bookingData={bookingData} />}
         </View>
         
     )
@@ -189,7 +223,8 @@ export default function BookingScreen() {
 
 const styles = StyleSheet.create({
     mainContainer:{
-        flex:1
+        flex:1,
+        backgroundColor:'#fff'
     },
     timeOption: {
       padding: 10,
