@@ -3,14 +3,14 @@ export const onboardingData = [
         id:1,
         title:'Comfort',
         desc:'Enjoy Comfortable Trips',
-        asset:require('../assets/images/onboarding1.png')
+        asset:require('../assets/images/pexels1.jpg')
 
     },
     {
         id:2,
         title:'Affordable',
         desc:'Enjoy Cheaper Trips',
-       asset:require('../assets/images/onboarding2.png')
+       asset:require('../assets/images/pexels2.jpg')
 
 
     },
@@ -18,7 +18,7 @@ export const onboardingData = [
         id:3,
         title:'Safer',
         desc:'Enjoy Safer Trips',
-        asset:require('../assets/images/onboarding3.png')
+        asset:require('../assets/images/pexels3.jpg')
 
 
     },

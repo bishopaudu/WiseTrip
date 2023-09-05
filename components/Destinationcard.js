@@ -14,13 +14,13 @@ export default function Destinationcard({item}){
             <Text style={{fontSize:15}}>From ->{item.price}</Text>
             <Text style={{fontSize:12}}>120 Trips</Text>
         </View>
-        <TouchableOpacity onPress={() => Routes()} style={{backgroundColor:'blue'}}>
+        <TouchableOpacity onPress={() => Routes()} style={{backgroundColor:'blue',borderRadius:10}}>
             <Text style={{padding:8,
                 margin:5,
-                borderRadius:5,
+               // borderRadius:10,
                 color:'white'
                // borderColor:'#5254e3',
-                //borderWidth:0.7,
+               // borderWidth:0.7,
                 }}>Book</Text>
         </TouchableOpacity>
         

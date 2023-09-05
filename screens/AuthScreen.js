@@ -19,6 +19,10 @@ export default function AuthScreen() {
   const[password,setPassword] = useState(null)
   const navigation = useNavigation()
 
+  const nav =() => {
+    navigation.goBack()
+  }
+
   const signIn = async () => {
     try {
       const response = await signInWithEmailAndPassword(auth,email,password)
@@ -41,7 +45,7 @@ export default function AuthScreen() {
   }
   return (
     <ImageBackground source={require('../assets/images/passenger.jpg')} style={{flex:1}}>
-      <Header/>
+      <Header nav ={nav}/>
     <View style={styles.container}>
       
       <Text style={styles.titleText}>WiseTrips</Text>

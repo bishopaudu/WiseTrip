@@ -30,16 +30,16 @@ const styles = StyleSheet.create({
     },
     title:{
       fontWeight:'800',
-      fontSize:28,
+      fontSize:50,
       marginBottom:10,
-      color:'#493d8a',
+      color:'blue',
       textAlign:'center'  
     },
     desc:{
       fontWeight:'300',
       fontSize:28,
       paddingHorizontal:64,
-      color:'#62656b',
+      color:'#fff',
       textAlign:'center'  
     }
   })
