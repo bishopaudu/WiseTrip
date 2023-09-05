@@ -27,12 +27,12 @@ export default function BookingScreen() {
     const [fromValue, setFromValue] = useState(null);
     const [toValue, setToValue] = useState(null);
     const [originItems, setOriginItems] = useState([
-    { label: 'Apple', value: 'apple' },
-    { label: 'Banana', value: 'banana' }
+    { label: 'Lagos', value: 'Lagos' },
+    { label: 'Abuja', value: 'Abuja' }
   ]);
   const [destinationItems, setDestinationItems] = useState([
-    { label: 'Apple', value: 'apple' },
-    { label: 'Banana', value: 'banana' }
+    { label: 'Kaduna', value: 'Kaduna' },
+    { label: 'Abia', value: 'Abia' }
   ]);
 
   const bookingData ={
@@ -97,6 +97,8 @@ export default function BookingScreen() {
               console.log(item.value);
               setOriginVal(item.value)
             }}
+            closeAfterSelecting={true}
+           
         />
         </View>
      
@@ -126,8 +128,8 @@ export default function BookingScreen() {
               console.log(item.value);
               setDestinationVal(item.value)
             }}
-            //searchable={true}
-        />
+            closeAfterSelecting={true}
+                    />
         </View>
 
         <View style={{flexDirection:'row',alignItems:'center',margin:10}}>

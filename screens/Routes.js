@@ -20,7 +20,8 @@ export default function Routes() {
                     marginBottom:10,
                     marginLeft:10,
                     marginRight:10,
-                   backgroundColor:'#e0e0e0',
+                   backgroundColor:'#fff',
+                   borderColor:'gray',
                    borderRadius:10}} >
                 <Destinationcard item={item}/>
                 </View>

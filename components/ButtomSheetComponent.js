@@ -15,7 +15,7 @@ export default function ButtomSheetComponent({isVisible,toggleModal,bookingData}
           <Text style={styles.textStyle}>Passengers: {bookingData.numOfPassengers}</Text>
           </View>
           <View style={{flexDirection:'row',justifyContent:'space-between'}}>
-          <TouchableOpacity style={styles.buttonStyle} onPress={() => {console.log('Booking Confirmed') }}>
+          <TouchableOpacity style={styles.buttonStyle} onPress={() => {console.log('Booking Confirmed');toggleModal()}}>
             <Text style={{color:'white'}}>Confirm</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.buttonStyle} title="Cancel" onPress={() => {toggleModal();console.log('touched closed modal')}}>

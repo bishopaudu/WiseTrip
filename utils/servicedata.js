@@ -16,3 +16,18 @@ export const destinationData = [
     price:'$7.80',
     img:require('../assets/abujaPopular.jpg')}
 ]
+
+export const deliveryData = [
+    {
+        id:1,
+        time:'2-4 Days'
+    },
+    {
+        id:2,
+        time:'3-6 Days'
+    },
+    {
+        id:3,
+        time:'4-8 Days'
+    },
+]

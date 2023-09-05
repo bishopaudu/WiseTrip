@@ -1,8 +1,8 @@
 import {Text,View,StyleSheet,TextInput,TouchableOpacity,ScrollView} from 'react-native'
 import Header from '../components/Header'
 import { useNavigation } from '@react-navigation/native';
-//import { Input } from '@rneui/base';
 import { TimePickerData } from '../utils/TimePickerData';
+import {deliveryData} from '../utils/servicedata';
 import { useState } from 'react';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { AntDesign } from '@expo/vector-icons';
@@ -10,10 +10,10 @@ import { AntDesign } from '@expo/vector-icons';
 
 export default function LogisticsScreen(){
     const[selectTime,setSelectTime] = useState([])
+    const[selectDate,setSelectDate] = useState([])
+
     const[date,setDate] = useState(new Date())
     const[showPicker,setShowPicker] = useState(false);
-
-
     const navigation = useNavigation()
     const nav =() => {
         navigation.goBack()
@@ -53,7 +53,7 @@ export default function LogisticsScreen(){
             <Text style={{marginLeft:10,fontSize:18}}>Select PickUp Time</Text>
             <View>
             <ScrollView showsHorizontalScrollIndicator={false} horizontal>
-        <View style={{ flexDirection: 'row',marginLeft:10,marginRight:10,marginTop:5}}>
+        <View style={styles.customButtonStyle}>
         {TimePickerData.map((item, index) => (
           <TouchableOpacity key={index} style={
             selectTime.includes(item.time) ?{
@@ -78,6 +78,32 @@ export default function LogisticsScreen(){
       </View>
       </ScrollView>
       </View>
+      <View>
+          <ScrollView showsHorizontalScrollIndicator={false} horizontal>
+              <View style={[styles.customButtonStyle,{marginLeft:60}]}>
+              {deliveryData.map((item, index) => (
+          <TouchableOpacity key={index} style={
+            selectDate.includes(item.time) ?{
+              padding: 10,
+              margin: 5,
+              backgroundColor: '#e0e0e0',
+              borderRadius: 10,
+              borderWidth:0.7,
+              borderColor:'blue',
+            }:{
+              padding: 10,
+              margin: 5,
+              backgroundColor: '#fff',
+              borderRadius: 10,
+              borderWidth:0.7,
+            }
+          } onPress={() => {setSelectDate(item.time);console.log(item.time)}}>
+              <Text>{item.time}</Text>
+          </TouchableOpacity>   
+        ))}
+              </View>
+          </ScrollView>
+      </View>
       <View style={{flexDirection:'row',alignItems:'center',margin:10}}>
         <View style={{margin:5,marginRight:5}}>
         <AntDesign name="calendar" size={24} color="blue" onPress={() => {
@@ -94,7 +120,7 @@ export default function LogisticsScreen(){
           onChange={onChange}
         />)}
       </View>
-      <TouchableOpacity style={styles.buttonStyle} onPress={() => {console.log('bookingbutton')}}>
+      <TouchableOpacity style={styles.buttonStyle} onPress={() => {console.log('bookingbutton');}}>
         <Text style={{textAlign:'center',fontSize:20,color:'white'}}>ORDER</Text>
       </TouchableOpacity>
       </View>
@@ -152,5 +178,15 @@ const styles = StyleSheet.create({
         backgroundColor:'#5254e3',
         margin:10,
         borderRadius:10
+      },
+      customButtonStyle:{
+        flexDirection: 'row',
+        marginLeft:10,
+        marginRight:10,
+        marginTop:5
+      },
+      dateStyle:{
+        marginLeft:15,
+        fontSize:20
       },
 })
