@@ -1,8 +1,19 @@
 import { BottomSheet } from '@rneui/themed';
-import {View,Text,Button,TouchableOpacity,StyleSheet} from'react-native'
+import {View,Text,TouchableOpacity,StyleSheet} from'react-native'
+import { useDispatch } from 'react-redux';
+import { addTicket } from '../redux/TicketReducer';
 
 export default function ButtomSheetComponent({isVisible,toggleModal,bookingData}) {
   console.log(bookingData)
+  const dispatch = useDispatch()
+  const confirm =() => { 
+            console.log('Booking Confirmed');
+            dispatch(addTicket(bookingData))
+            toggleModal()}
+  const cancel = () => {
+              toggleModal();
+              console.log('touched closed modal')
+  }                     
     return(
         <BottomSheet isVisible={isVisible}>
         <View style={styles.container}>
@@ -15,10 +26,10 @@ export default function ButtomSheetComponent({isVisible,toggleModal,bookingData}
           <Text style={styles.textStyle}>Passengers: {bookingData.numOfPassengers}</Text>
           </View>
           <View style={{flexDirection:'row',justifyContent:'space-between'}}>
-          <TouchableOpacity style={styles.buttonStyle} onPress={() => {console.log('Booking Confirmed');toggleModal()}}>
+          <TouchableOpacity style={styles.buttonStyle} onPress={() => confirm()}>
             <Text style={{color:'white'}}>Confirm</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonStyle} title="Cancel" onPress={() => {toggleModal();console.log('touched closed modal')}}>
+          <TouchableOpacity style={styles.buttonStyle} title="Cancel" onPress={() => cancel()}>
             <Text style={{color:'white'}}>Cancel</Text>
           </TouchableOpacity>
           

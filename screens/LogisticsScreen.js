@@ -67,7 +67,7 @@ export default function LogisticsScreen(){
             }:{
               padding: 10,
               margin: 5,
-              backgroundColor: '#e0e0e0',
+              backgroundColor: '#fff',
               borderRadius: 10,
               borderWidth:0.7
             }

@@ -169,7 +169,7 @@ export default function BookingScreen() {
             }:{
               padding: 10,
               margin: 5,
-              backgroundColor: '#e0e0e0',
+              backgroundColor: '#fff',
               borderRadius: 10,
               borderWidth:0.7
             }
@@ -188,7 +188,7 @@ export default function BookingScreen() {
         <View style={{flexDirection:'row',
         padding:10,
         width:150,
-        backgroundColor:'#e0e0e0',
+        backgroundColor:'#fff',
         marginLeft:20,
         justifyContent:'space-between',
         borderRadius:10,
