@@ -1,5 +1,5 @@
 import { BottomSheet } from '@rneui/themed';
-import {View,Text,TouchableOpacity,StyleSheet} from'react-native'
+import {View,Text,TouchableOpacity,StyleSheet,ScrollView} from'react-native'
 import { useDispatch } from 'react-redux';
 import { addTicket } from '../redux/TicketReducer';
 
@@ -17,14 +17,15 @@ export default function ButtomSheetComponent({isVisible,toggleModal,bookingData}
     return(
         <BottomSheet isVisible={isVisible}>
         <View style={styles.container}>
-          <View style={styles.sub}>
+          <ScrollView style={styles.sub} showsVerticalScrollIndicator={false}>
           <Text style={{textAlign:'center',fontSize:18,fontWeight:'300'}}>Booking Summary</Text>
+          <Text style={styles.textStyle}>Ticketid: {bookingData.id}</Text>
          <Text style={styles.textStyle}>Origin:{bookingData.origin}</Text>
           <Text style={styles.textStyle}>Destination: {bookingData.destination}</Text>
           <Text style={styles.textStyle}>Departure Date: {bookingData.departureDate}</Text>
           <Text style={styles.textStyle}>Dparture Time: {bookingData.departureTime}</Text>
           <Text style={styles.textStyle}>Passengers: {bookingData.numOfPassengers}</Text>
-          </View>
+          </ScrollView>
           <View style={{flexDirection:'row',justifyContent:'space-between'}}>
           <TouchableOpacity style={styles.buttonStyle} onPress={() => confirm()}>
             <Text style={{color:'white'}}>Confirm</Text>
@@ -32,9 +33,8 @@ export default function ButtomSheetComponent({isVisible,toggleModal,bookingData}
           <TouchableOpacity style={styles.buttonStyle} title="Cancel" onPress={() => cancel()}>
             <Text style={{color:'white'}}>Cancel</Text>
           </TouchableOpacity>
-          
           </View>
-          </View>
+          </View>  
       </BottomSheet>
     )
 }

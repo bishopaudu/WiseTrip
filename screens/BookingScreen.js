@@ -11,10 +11,9 @@ import {TimePickerData} from '../utils/TimePickerData'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { EvilIcons } from '@expo/vector-icons';
 import ButtomSheetComponent from '../components/ButtomSheetComponent'
-
-
-
+import randomidgenerator from '../utils/randomidgenerator';
 export default function BookingScreen() {
+  const randomid = randomidgenerator()
   const[originVal,setOriginVal] = useState(null)
   const[destinationVal,setDestinationVal] = useState(null)
   const[isVisible,setIsvisible] = useState(false)
@@ -40,7 +39,8 @@ export default function BookingScreen() {
     departureTime:selectTime,
     numOfPassengers:passengers,
     origin:originVal,
-    destination:destinationVal
+    destination:destinationVal,
+    id:randomid
 
   }
 

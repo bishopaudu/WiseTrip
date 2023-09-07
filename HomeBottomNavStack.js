@@ -19,7 +19,7 @@ export default function HomeBottomNavStack() {
         tabBarIcon:({focused}) => <AntDesign name="home" size={24} color={focused ? 'gray': 'blue'} />
       }} name="Home" component={HomeScreen} />
       <Tab.Screen name="Ticket" component={Tickets} options={{
-        tabBarLabel:({focused}) => (<Text style={{color:focused ? 'gray': 'blue'}}>Ticket</Text>),
+        tabBarLabel:({focused}) => (<Text style={{color:focused ? 'gray': 'blue'}}>My Bookings</Text>),
         tabBarIcon:({focused}) => <Entypo name="ticket" size={24} color={focused ? 'gray': 'blue'} />
       }}/>
       <Tab.Screen name="Profile" component={Settings} options={{
