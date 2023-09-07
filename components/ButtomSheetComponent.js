@@ -2,11 +2,14 @@ import { BottomSheet } from '@rneui/themed';
 import {View,Text,TouchableOpacity,StyleSheet,ScrollView} from'react-native'
 import { useDispatch } from 'react-redux';
 import { addTicket } from '../redux/TicketReducer';
+//import { useNavigation } from '@react-navigation/native';
 
 export default function ButtomSheetComponent({isVisible,toggleModal,bookingData}) {
+ // const navigation = useNavigation()
   console.log(bookingData)
   const dispatch = useDispatch()
   const confirm =() => { 
+            //navigation.goBack()
             console.log('Booking Confirmed');
             dispatch(addTicket(bookingData))
             toggleModal()}

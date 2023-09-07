@@ -38,9 +38,10 @@ const styles = StyleSheet.create({
         alignItems:'center',
         margin:5,
         backgroundColor:'#fff',
-        borderWidth:2,
-        borderColor:'gray',
-        borderRadius:10
+        borderWidth:1,
+        borderColor:'#e0e0e0',
+        borderRadius:10,
+        borderRightColor:'red'
         
     },
     subContainer:{

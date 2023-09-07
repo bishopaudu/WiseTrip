@@ -30,7 +30,7 @@ export default function HomeScreen() {
           </Pressable>
           <Text style={styles.logoText}>WiseTrips</Text>
           <Pressable style={styles.iconsStyle} onPress={notificationNav}>
-            <Ionicons name="notifications" size={30} color="blue" />
+          <AntDesign name="customerservice" size={30} color="black" />
           </Pressable>
         </View>
         <CarouselScreen />
