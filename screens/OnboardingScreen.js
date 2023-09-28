@@ -6,8 +6,6 @@ import Paginator from '../components/Paginator'
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
-
-
 export default function OnboardingScreen() {
   const navigation = useNavigation()
   const[currentIndex,setCurrentIndex] = useState(0)

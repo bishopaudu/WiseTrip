@@ -12,7 +12,7 @@ export default function App() {
       <PersistGate persistor={persistedStore}>
     <SafeAreaView style={styles.container}>
       <StatusBar
-        barStyle="light-content"/>
+        Style="light-content"/>
       <Navigation/>
       </SafeAreaView>
       </PersistGate>

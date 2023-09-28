@@ -3,7 +3,6 @@ import { persistStore, persistReducer } from 'redux-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import TicketReducer from './TicketReducer';
 
-// Create the persistConfig object
 const persistConfig = {
   key: 'root', 
   storage: AsyncStorage, 

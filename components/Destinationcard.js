@@ -11,7 +11,7 @@ export default function Destinationcard({item}){
         <Image source={item.img} resizeMode='cover' style={styles.imageContainer}/> 
         <View style={styles.subContainer}>
             <Text style={{fontSize:20,fontWeight:'400'}}>{item.route.from} To {item.route.to}</Text>
-            <Text style={{fontSize:15}}>From ->{item.price}</Text>
+            <Text style={{fontSize:15}}>From -> {item.price}</Text>
             <Text style={{fontSize:12}}>120 Trips</Text>
         </View>
         <TouchableOpacity onPress={() => Routes()} style={{backgroundColor:'blue',borderRadius:10}}>

@@ -1,12 +1,12 @@
 import {View,Text,StyleSheet} from 'react-native'
-import { AntDesign } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function Header({text,nav}){
 
     return (
         <View style={styles.headerContainer}>
         <View style={styles.iconContainer}>
-        <AntDesign name="arrowleft" size={30} color="black" onPress={nav}/>
+        <Ionicons name="chevron-back" size={30} color="blue" onPress={nav}/>
         </View>
         <Text style={styles.headerText}>{text}</Text>
         </View>
@@ -25,6 +25,9 @@ const styles = StyleSheet.create({
         fontWeight:'400',
     },
     iconContainer:{
-        marginRight:40
+        marginRight:40,
+        padding:2,
+        //borderRadius:50,
+       // backgroundColor:'gray'
     },
 })
