@@ -31,7 +31,7 @@ export default function ButtomSheetComponent({isVisible,toggleModal,bookingData}
           </ScrollView>
           <View style={{flexDirection:'row',justifyContent:'space-between'}}>
           <TouchableOpacity style={styles.buttonStyle} onPress={() => confirm()}>
-            <Text style={{color:'white'}}>Confirm</Text>
+            <Text style={{color:'white'}}>Proceed To Pay</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.buttonStyle} title="Cancel" onPress={() => cancel()}>
             <Text style={{color:'white'}}>Cancel</Text>

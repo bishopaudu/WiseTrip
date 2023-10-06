@@ -45,7 +45,7 @@ export default function AuthScreen() {
   }
   return (
     <ImageBackground source={require('../assets/images/passenger.jpg')} style={{flex:1}}>
-      <Header nav ={nav}/>
+      {/*<Header nav ={nav}/>*/}
     <View style={styles.container}>
       
       <Text style={styles.titleText}>WiseTrips</Text>

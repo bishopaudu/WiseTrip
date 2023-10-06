@@ -16,11 +16,13 @@ export default function Header({text,nav}){
 const styles = StyleSheet.create({
     headerContainer:{
         flexDirection:'row',
-        margin:10,
-        alignItems:'center'
+       // margin:10,
+        alignItems:'center',
+        backgroundColor:'#5254e3',
+        height:50
     },
     headerText:{
-        marginLeft:60,
+        marginLeft:10,
         fontSize:30,
         fontWeight:'400',
     },
