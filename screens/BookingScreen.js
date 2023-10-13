@@ -104,7 +104,7 @@ export default function BookingScreen() {
     <View style={styles.mainContainer}>
     <Header text="Bookings" nav={nav}/>
       <View style={styles.ticketContainer}>
-          <View style={{flexDirection:'row',alignItems:"center",margin:10}}>
+          <View style={styles.dropdown}>
           <View style={{margin:5}}>
           <FontAwesome5 name="bus" size={20} color="blue" />
           </View>
@@ -119,9 +119,10 @@ export default function BookingScreen() {
       placeholder='Select Origin'
       placeholderStyle={{
           color: "grey",
-          fontWeight: "bold"
+          fontWeight: "bold",
+          textAlign:'center'
         }}
-      style={{ backgroundColor: 'white',width:240}} 
+      style={{ backgroundColor: 'white',width:300}} 
       stickyHeader={true}
       zIndex={3000}
       zIndexInverse={1000}
@@ -134,7 +135,7 @@ export default function BookingScreen() {
   />
   </View>
 
-  <View style={{flexDirection:'row',alignItems:"center",margin:10}}>
+  <View style={styles.dropdown}>
           <View style={{margin:5}}>
           <FontAwesome5 name="bus" size={20} color="blue" />
           </View>
@@ -149,9 +150,10 @@ export default function BookingScreen() {
       placeholder='Select Destination'
       placeholderStyle={{
           color: "grey",
-          fontWeight: "bold"
+          fontWeight: "bold",
+          textAlign:'center'
         }}
-      style={{ backgroundColor: 'white',width:240}}
+      style={{ backgroundColor: 'white',width:300}}
       stickyHeader={true}
       zIndex={1000}
       zIndexInverse={3000}
@@ -163,12 +165,13 @@ export default function BookingScreen() {
               />
   </View>
 
-  <View style={{flexDirection:'row',alignItems:'center',margin:5}}>
+  <View style={styles.dateContainer}>
   <View style={{margin:5}}>
   <AntDesign name="calendar" size={24} color="blue" onPress={() => openCalender()} />     
   </View>
-  <Text style={{margin:5,fontSize:20}}>Select Departure Date:</Text>
+  <Text style={{margin:5,fontSize:18}}>Select Departure Date:</Text>
   <Text style={styles.dateStyle}>{formattedDate ? formattedDate : 'Select Date'}</Text>
+  
   {showPicker && (
   <DateTimePicker
     value={date}
@@ -179,9 +182,9 @@ export default function BookingScreen() {
 </View>
 
 <View>
-  <View style={{flexDirection:'row',alignItems:'center',margin:10,}}>
+  <View style={{flexDirection:'row',alignItems:'center',marginVertical:10}}>
   <Entypo name="back-in-time" size={24} color="blue" />
-  <Text style={{marginLeft:10,fontSize:20}}>Select Departure Time</Text>
+  <Text style={{marginLeft:10,fontSize:18}}>Select Departure Time</Text>
   <Text style={{marginLeft:10}}>{selectTime}</Text>
   </View>
   <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -209,25 +212,25 @@ export default function BookingScreen() {
 </View>
 </ScrollView>
 </View>
-<View style={{flexDirection:'row',margin:5,alignItems:'center',marginTop:10}}>
-  <View style={{marginRight:5,marginLeft:5}}>
+<View style={styles.passengers}>
+  <View style={{marginRight:5}}>
 <MaterialCommunityIcons name="seat-passenger" size={24} color="blue" />
 </View>
   <Text style={{fontSize:20}}>Passenger</Text>
   <View style={{flexDirection:'row',
-  padding:10,
+  //padding:10,
   width:150,
-  backgroundColor:'#fff',
+  //backgroundColor:'#fff',
   marginLeft:20,
   justifyContent:'space-between',
-  borderRadius:10,
+  //borderRadius:10,
   alignItems:'center'}}>
 
-  <EvilIcons name="plus" size={28} color="black" 
+  <EvilIcons name="plus" size={30} color="black" 
   onPress={() => {console.log('plus touched' + passengers); 
   setPassengers(prevPassengers => prevPassengers + 1)}}/>
     <Text style={{fontSize:20}}>{passengers}</Text>
-    <EvilIcons name="minus" size={28} color="black" 
+    <EvilIcons name="minus" size={30} color="black" 
       onPress={() => {
         if (passengers > 0) {
           console.log('Minus touched');
@@ -256,6 +259,28 @@ const styles = StyleSheet.create({
   mainContainer:{
       flex:1,
       backgroundColor:'#fff'
+  },
+  dateContainer:{
+    flexDirection:'row',
+    alignItems:'center',
+    marginVertical:10,
+    paddingVertical:10,
+    borderRadius:10,
+    borderWidth:0.7
+  },
+  passengers:{
+    flexDirection:'row',
+    marginTop:15,
+    alignItems:'center',
+    marginVertical:10,
+    paddingVertical:10,
+    borderRadius:10,
+    borderWidth:0.7,
+  },
+  dropdown:{
+    flexDirection:'row',
+    alignItems:"center",
+    marginVertical:10
   },
   timeOption: {
     padding: 10,
@@ -291,10 +316,11 @@ const styles = StyleSheet.create({
   },
   ticketContainer:{
       backgroundColor:'#fff',
-      margin:10,
-      marginTop:10,
-      borderWidth:1,
+      marginLeft:10,
+      marginRight:10,
+      //marginTop:10,
+      //borderWidth:1,
       borderColor:'#e0e0e0',
       borderRadius:10
-  },  
+    }
 })

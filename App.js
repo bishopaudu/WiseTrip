@@ -12,7 +12,7 @@ export default function App() {
       <PersistGate persistor={persistedStore}>
     <SafeAreaView style={styles.container}>
       <StatusBar
-        Style="light-content"/>
+        Style="auto"/>
       <Navigation/>
       </SafeAreaView>
       </PersistGate>
@@ -23,6 +23,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'#fff'
+    backgroundColor:'white'
   },
 });

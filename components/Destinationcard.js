@@ -10,17 +10,14 @@ export default function Destinationcard({item}){
         <View style={styles.container} key={item.id}>
         <Image source={item.img} resizeMode='cover' style={styles.imageContainer}/> 
         <View style={styles.subContainer}>
-            <Text style={{fontSize:20,fontWeight:'400'}}>{item.route.from} To {item.route.to}</Text>
+            <Text style={{fontSize:15,fontWeight:'400'}}>{item.route.from} To {item.route.to}</Text>
             <Text style={{fontSize:15}}>From -> {item.price}</Text>
             <Text style={{fontSize:12}}>120 Trips</Text>
         </View>
         <TouchableOpacity onPress={() => Routes()} style={{backgroundColor:'blue',borderRadius:10}}>
             <Text style={{padding:8,
                 margin:5,
-               // borderRadius:10,
                 color:'white'
-               // borderColor:'#5254e3',
-               // borderWidth:0.7,
                 }}>Book</Text>
         </TouchableOpacity>
         
@@ -34,18 +31,19 @@ const styles = StyleSheet.create({
         marginRight:10,
         justifyContent:'center',
         alignItems:'center',
+        borderRadius:5
+
        
     },
     imageContainer:{
-        borderRadius:5,
-        padding:10,
-        width:150,
-        height:120
+       borderTopLeftRadius:5,
+       borderBottomLeftRadius:5,
+       padding:5,
+        width:120,
+        height:100,
     },
     subContainer:{
         flex:1,
-        //justifyContent:'center',
-        //alignItem:'center',
         marginLeft:10
     },
    

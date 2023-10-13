@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         flexDirection:'row',
        // margin:10,
         alignItems:'center',
-        backgroundColor:'#5254e3',
+        //backgroundColor:'#5254e3',
         height:50
     },
     headerText:{
